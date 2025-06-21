@@ -1,5 +1,3 @@
-pipeline{
-
 node{
     
     properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '5', numToKeepStr: '')), pipelineTriggers([cron('* * * * *')])])
@@ -22,6 +20,5 @@ node{
        sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@172.31.6.208:/opt/apache-tomcat-9.0.106/webapps/"     
       }
    }
- 
+   
 }
-}//Pipeline closing

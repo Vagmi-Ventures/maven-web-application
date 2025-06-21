@@ -5,6 +5,9 @@ node{
     //properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '5', numToKeepStr: '')), pipelineTriggers([cron('* * * * *')])])
 
     try{
+
+        notifyBuild('STARTED')
+        
         def mavenHome = tool name: "Maven3.9.10"
         stage('CheckoutCode'){
             git credentialsId: 'd7bef15c-d6cc-45db-92e8-2712d5a7f3db', url: 'https://github.com/Vagmi-Ventures/maven-web-application.git'
